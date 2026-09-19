@@ -5,6 +5,8 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.datasource.DataSourceTransactionManager;
+import org.springframework.transaction.PlatformTransactionManager;
 
 import com.zaxxer.hikari.HikariDataSource;
 
@@ -25,5 +27,13 @@ public class Database2Config {
 	JdbcTemplate jdbcTemplateDb2(@Qualifier("dataSourceDb2") HikariDataSource ds) {
 		log.info("Init jdbcTemplateDb2");
 		return new JdbcTemplate(ds);
+	}
+
+	// ======== transaction manager db2 =========
+	@Bean(name = "transactionManagerDb2")
+	PlatformTransactionManager transactionManagerDb2(
+			@Qualifier("dataSourceDb2") HikariDataSource ds) {
+
+		return new DataSourceTransactionManager(ds);
 	}
 }
