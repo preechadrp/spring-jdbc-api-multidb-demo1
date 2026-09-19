@@ -1,0 +1,8 @@
+spring:
+  application:
+    name: spring-jdbc-api-multidb-demo1
+  profiles:
+    active: dev
+  threads:
+    virtual:
+        enabled: true
