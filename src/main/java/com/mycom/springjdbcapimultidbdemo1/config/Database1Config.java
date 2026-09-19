@@ -21,20 +21,20 @@ public class Database1Config {
 	@Primary
 	@Bean(name = "dataSourceDb1")
 	@ConfigurationProperties(prefix = "custom-config.datasource1")
-	HikariDataSource dataSourceDb1() {
+	HikariDataSource dataSourceDb() {
 		return new HikariDataSource();
 	}
 
 	@Primary
 	@Bean(name = "jdbcTemplateDb1")
-	JdbcTemplate jdbcTemplateDb1(@Qualifier("dataSourceDb1") HikariDataSource ds) {
+	JdbcTemplate jdbcTemplateDb(@Qualifier("dataSourceDb1") HikariDataSource ds) {
 		log.info("Init jdbcTemplateDb1");
 		return new JdbcTemplate(ds);
 	}
 
 	// ======== transaction manager db1 =========
 	@Bean(name = "transactionManagerDb1")
-	PlatformTransactionManager transactionManagerDb1(
+	PlatformTransactionManager transactionManagerDb(
 			@Qualifier("dataSourceDb1") HikariDataSource ds) {
 
 		return new DataSourceTransactionManager(ds);

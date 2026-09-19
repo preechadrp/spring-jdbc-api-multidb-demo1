@@ -19,19 +19,19 @@ public class Database2Config {
 
 	@Bean(name = "dataSourceDb2")
 	@ConfigurationProperties(prefix = "custom-config.datasource2")
-	HikariDataSource dataSourceDb2() {
+	HikariDataSource dataSourceDb() {
 		return new HikariDataSource();
 	}
 
 	@Bean(name = "jdbcTemplateDb2")
-	JdbcTemplate jdbcTemplateDb2(@Qualifier("dataSourceDb2") HikariDataSource ds) {
+	JdbcTemplate jdbcTemplateDb(@Qualifier("dataSourceDb2") HikariDataSource ds) {
 		log.info("Init jdbcTemplateDb2");
 		return new JdbcTemplate(ds);
 	}
 
 	// ======== transaction manager db2 =========
 	@Bean(name = "transactionManagerDb2")
-	PlatformTransactionManager transactionManagerDb2(
+	PlatformTransactionManager transactionManagerDb(
 			@Qualifier("dataSourceDb2") HikariDataSource ds) {
 
 		return new DataSourceTransactionManager(ds);
