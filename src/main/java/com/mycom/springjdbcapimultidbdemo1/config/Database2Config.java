@@ -16,7 +16,7 @@ public class Database2Config {
 	//======== datasource2 =========//
 
 	@Bean(name = "dataSourceDb2")
-	@ConfigurationProperties(prefix = "spring.datasource2")
+	@ConfigurationProperties(prefix = "custom-config.datasource2")
 	HikariDataSource dataSourceDb2() {
 		return new HikariDataSource();
 	}

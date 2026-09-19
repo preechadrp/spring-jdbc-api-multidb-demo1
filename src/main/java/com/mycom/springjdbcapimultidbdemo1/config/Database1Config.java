@@ -18,7 +18,7 @@ public class Database1Config {
 
 	@Primary
 	@Bean(name = "dataSourceDb1")
-	@ConfigurationProperties(prefix = "spring.datasource1")
+	@ConfigurationProperties(prefix = "custom-config.datasource1")
 	HikariDataSource dataSourceDb1() {
 		return new HikariDataSource();
 	}

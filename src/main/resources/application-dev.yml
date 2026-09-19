@@ -1,4 +1,4 @@
-spring:
+#spring:
   # รูปแบบปกติถ้าใช้ database อันเดียว
   #
   # จากการทดสอบใช้คู่กับแบบ multi-datasource ยุ่งยาก
@@ -8,6 +8,7 @@ spring:
   # datasource:
   #   url: jdbc:mariadb://localhost:3306/spring_jdbc_api_multidb_db1
 
+custom-config:
   # primary db (ใช้พารามิเตอร์ Hikari โดยตรง)
   datasource1:
     pool-name: mydb-1
